@@ -8,7 +8,7 @@ import { contact, primaryNav } from "@/lib/site";
 import { genericWhatsappLink } from "@/lib/whatsapp";
 export function SiteHeader() {
     const pathname = usePathname();
-    const useHomeHeader = pathname === "/" || pathname.startsWith("/properties") || pathname.startsWith("/projects") || pathname === "/about" || pathname === "/contact" || pathname.startsWith("/developers") || pathname === "/calculator";
+    const useHomeHeader = pathname === "/" || pathname.startsWith("/properties") || pathname.startsWith("/projects") || pathname === "/about" || pathname === "/contact" || pathname.startsWith("/developers") || pathname === "/calculator" || pathname === "/list-your-property";
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const trigger = useRef<HTMLButtonElement>(null);
