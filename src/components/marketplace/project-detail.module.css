@@ -1,4 +1,41 @@
 .page { background: #faf8f4; color: #0b1e2b; font-family: var(--font-manrope), sans-serif; }
+.rahatPage > section { padding-block: 70px; }
+/* Keep the hero content clear of the shared absolute-positioned header. */
+.rahatPage > .hero .heroCopy { padding-block: 50px 0; }
+.rahatPage .explore .categoryGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.rahatPage .explore .categoryGrid > a { height: clamp(300px, 28vw, 420px); }
+.rahatPage .plans > div { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.rahatPage .gallery > div { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.rahatPage .related > div { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.rahatPage :is(.plans, .gallery, .related) > div > div:first-child { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 40px; align-items: center; }
+.rahatPage :is(.plans, .gallery, .related) > div > div:first-child > .eyebrow { grid-column: 1 / -1; }
+.rahatPage :is(.plans, .gallery, .related) h2 { white-space: nowrap; font-size: clamp(26px, 2.5vw, 35px); }
+.rahatPage :is(.plans, .gallery, .related) > div > div:first-child > .copy { margin: 0; justify-self: end; max-width: 370px; }
+.rahatPage .relatedGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.rahatPage .relatedGrid > a { display: block; padding: 0; overflow: hidden; }
+.rahatPage .relatedGrid .relatedImage { width: 100%; height: clamp(270px, 24vw, 360px); border-radius: 0; }
+.rahatPage .relatedGrid > a > div:last-child { padding: 20px; }
+.rahatPage .relatedGrid h3 { font-size: 24px; }
+.rahatPage .relatedGrid p, .rahatPage .relatedGrid span { font-size: 12px; }
+.rahatPage .gallery .galleryImages :global(.gallery-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.rahatPage .gallery .galleryImages :global(.gallery-thumb) { height: clamp(270px, 24vw, 360px); }
+.rahatPage .gallery .galleryImages :global(.gallery-thumb img) { padding-bottom: 50px; }
+.rahatPage .gallery .galleryImages :global(.gallery-thumb > span) { min-height: 50px; padding: 14px; font-size: 12px; }
+.rahatPage .plans .planGallery :global(.gallery-grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.rahatPage .plans .planGallery :global(.gallery-thumb) { height: clamp(270px, 24vw, 360px); }
+.rahatPage .plans .planGallery :global(.gallery-thumb img) { padding-bottom: 50px; }
+.rahatPage .plans .planGallery :global(.gallery-thumb > span) { min-height: 50px; padding: 14px; font-size: 12px; }
+@media (max-width: 750px) {
+    .rahatPage .explore .categoryGrid { grid-template-columns: 1fr; }
+    .rahatPage :is(.plans, .gallery, .related) > div > div:first-child { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .rahatPage :is(.plans, .gallery, .related) h2 { white-space: normal; }
+    .rahatPage :is(.plans, .gallery, .related) > div > div:first-child > .copy { justify-self: start; }
+    .rahatPage .relatedGrid { grid-template-columns: 1fr; }
+    .rahatPage .gallery .galleryImages :global(.gallery-grid) { grid-template-columns: 1fr; }
+    .rahatPage .gallery .galleryImages :global(.gallery-thumb) { height: 300px; }
+    .rahatPage .plans .planGallery :global(.gallery-grid) { grid-template-columns: 1fr; }
+    .rahatPage .plans .planGallery :global(.gallery-thumb) { height: 300px; }
+}
 .page h2 { font-family: var(--font-bodoni-moda), Georgia, serif; font-size: 35px; font-weight: 500; letter-spacing: -.7px; line-height: 1.08; }
 .eyebrow { font-size: 9px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; color: #b68e49; margin-bottom: 10px; }
 .copy { font-size: 12px; line-height: 1.8; color: #72808b; margin-top: 12px; }
