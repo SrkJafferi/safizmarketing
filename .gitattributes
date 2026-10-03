@@ -1,0 +1,8 @@
+# Keep production media and original downloadable brochures byte-for-byte intact.
+*.pdf binary
+*.avif binary
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary

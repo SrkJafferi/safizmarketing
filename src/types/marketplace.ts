@@ -1,0 +1,58 @@
+export type Media = { src: string; alt: string; width: number; height: number };
+export type Developer = {
+    id: string;
+    slug: string;
+    name: string;
+    logo?: Media;
+    location: string;
+    overview: string;
+    description: string[];
+};
+export type Project = {
+    id: string;
+    slug: string;
+    developerId: string;
+    name: string;
+    city: string;
+    area: string;
+    address: string;
+    projectType: string;
+    categories: string[];
+    overview: string;
+    description: string[];
+    cover: Media;
+    gallery: Media[];
+    floorPlans: Media[];
+    locationMap?: Media;
+    amenities: string[];
+    paymentPlan?: {
+        downPercent: number;
+        count: number;
+        frequency: "quarterly";
+        source: string;
+        sourceLabel: string;
+        note?: string;
+    };
+    brochure: string;
+    featured: boolean;
+};
+export type PropertyUnit = {
+    id: string;
+    slug: string;
+    projectId: string;
+    unitNumber: string;
+    category: string;
+    floor: string;
+    type: "shop" | "office" | "shop-office" | "apartment";
+    bedrooms?: number;
+    sizeSqFt: number | null;
+    price: number;
+    downPayment: number;
+    installmentAmount: number;
+    installmentCount: number;
+    paymentFrequency: "quarterly";
+    availability: "unconfirmed";
+    source: string;
+    sourcePage: number;
+    featured: boolean;
+};

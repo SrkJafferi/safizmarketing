@@ -1,0 +1,60 @@
+.page { background: #f8f6f1; }
+.hero { min-height: 540px; padding-bottom: 65px; }
+.hero h1 { font-size: 68px; }
+.hero :global(.rh-container) { position: relative; }
+.hero p { max-width: 590px; }
+.contacts { position: relative; padding: 0 0 55px; margin-top: -30px; }
+.cardGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.contactCard { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 28px 23px 23px; border: 1px solid #ebe6dc; border-radius: 12px; background: #fff; box-shadow: 0 10px 35px #041b2b09; transition: transform .2s, box-shadow .2s; }
+.contactCard:hover { transform: translateY(-4px); box-shadow: 0 15px 38px #041b2b15; }
+.icon { display: grid; place-items: center; width: 52px; height: 52px; background: #f8efd9; border-radius: 50%; color: #b88938; margin-bottom: 19px; }
+.contactCard h2 { font-family: var(--font-manrope), sans-serif; font-size: 16px; font-weight: 800; margin: 0 0 10px; }
+.contactCard p { font-size: 12px; line-height: 1.8; color: #687782; overflow-wrap: anywhere; margin-bottom: 20px; }
+.cardAction { display: flex; align-items: center; gap: 7px; margin-top: auto; font-size: 11px; font-weight: 750; color: #926927; }
+.eyebrow { font-size: 9px; letter-spacing: 1.8px; text-transform: uppercase; color: #b18b4b; font-weight: 800; margin-bottom: 12px; }
+.enquiry { padding: 10px 0 65px; }
+.enquiryGrid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: start; }
+.intro h2, .sectionHead h2, .cta h2 { font-family: var(--font-bodoni-moda), Georgia, serif; font-size: 43px; font-weight: 500; letter-spacing: -.8px; line-height: 1.14; margin: 0; }
+.intro h2 em, .cta h2 em { color: #c49a4b; }
+.intro > p:not(.eyebrow) { font-size: 13px; line-height: 1.9; color: #697782; margin-top: 22px; max-width: 450px; }
+.support { display: flex; gap: 17px; padding: 27px 0; margin: 14px 0 5px; border-top: 1px solid #e7e2d8; border-bottom: 1px solid #e7e2d8; }
+.support > svg { color: #ad8440; flex-shrink: 0; }
+.support h3 { font-size: 14px; font-weight: 800; }
+.support p { font-size: 12px; color: #697782; margin: 6px 0 10px; }
+.support a { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 800; }
+.visit { background: #041b2b; color: #fff; padding: 27px 28px; border-radius: 12px; margin-top: 25px; }
+.visit > svg { color: #e1bb6a; margin-bottom: 13px; }
+.visit h3 { font-family: var(--font-bodoni-moda), Georgia, serif; font-size: 27px; font-weight: 500; }
+.visit address { font-size: 12px; line-height: 1.8; font-style: normal; color: #c4cfd5; margin: 12px 0 22px; max-width: 370px; }
+.goldButton, .outlineButton { display: inline-flex; justify-content: center; align-items: center; gap: 13px; min-height: 46px; padding: 13px 21px; border-radius: 12px; font-size: 12px; font-weight: 800; }
+.goldButton { color: #041b2b; background: linear-gradient(105deg, #d7ac55, #e7c780); }
+.outlineButton { border: 1px solid #bda26d; color: #041b2b; }
+.goldButton:hover { background: #e7c780; }
+.outlineButton:hover { background: #f3ead8; }
+.formPanel { padding: 34px; border: 1px solid #ebe6dc; background: #fff; border-radius: 12px; box-shadow: 0 12px 40px #041b2b07; }
+.formPanel :global(.enquiry-form) { border: 0; padding: 0; background: transparent; border-radius: 0; box-shadow: none; }
+.formPanel :global(.enquiry-form h2) { font-family: var(--font-bodoni-moda), Georgia, serif; font-size: 32px; font-weight: 500; margin-bottom: 25px; }
+.formPanel :global(.enquiry-fields) { gap: 20px 18px; }
+.formPanel :global(.enquiry-fields label) { font-size: 12px; letter-spacing: 0; text-transform: none; color: #233b4b; font-weight: 650; }
+.formPanel :global(.enquiry-fields input), .formPanel :global(.enquiry-fields textarea) { border: 1px solid #dce2e5; background: #fcfcfb; border-radius: 7px; font-size: 13px; padding: 13px; color: #041b2b; }
+.formPanel :global(.enquiry-fields textarea) { min-height: 155px; resize: vertical; }
+.formPanel :global(.market-button) { background: #041b2b; color: #fff; border-radius: 12px; min-height: 49px; font-size: 12px; width: 100%; justify-content: center; margin-top: 23px; }
+.formPanel :global(.enquiry-form > p) { font-size: 10px; line-height: 1.8; color: #78858e; margin-top: 15px; }
+.location { padding: 55px 0 65px; background: #f0ede7; }
+.sectionHead { display: flex; justify-content: space-between; align-items: center; gap: 25px; margin-bottom: 27px; }
+.sectionHead h2 { font-size: 38px; }
+.map { position: relative; border: 1px solid #deded8; border-radius: 12px; overflow: hidden; background: #e4e7e3; }
+.map iframe { display: block; width: 100%; height: 390px; border: 0; }
+.mapCaption { display: flex; align-items: center; gap: 17px; background: #fff; padding: 21px 25px; }
+.mapCaption > svg { color: #b58c42; flex-shrink: 0; }
+.mapCaption strong { font-size: 12px; }
+.mapCaption address { font-size: 11px; font-style: normal; color: #687782; line-height: 1.7; margin-top: 4px; }
+.cta { padding: 40px 0; }
+.cta > div { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.cta h2 { font-size: 32px; }
+.cta p:not(.eyebrow) { font-size: 12px; line-height: 1.8; color: #687782; margin-top: 12px; }
+.cta a { flex-shrink: 0; }
+.page a:focus-visible, .page input:focus-visible, .page textarea:focus-visible { outline: 2px solid #b58c42; outline-offset: 4px; }
+@media (max-width: 1000px) { .cardGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .enquiryGrid { gap: 30px; } .intro h2 { font-size: 36px; } .formPanel { padding: 25px; } }
+@media (max-width: 750px) { .hero { min-height: 480px; } .hero h1 { font-size: 45px; letter-spacing: -1px; } .hero p { font-size: 14px; } .contacts { padding-bottom: 35px; margin-top: -20px; } .cardGrid { gap: 12px; } .contactCard { padding: 20px 16px; } .contactCard h2 { font-size: 14px; } .enquiryGrid { grid-template-columns: 1fr; } .enquiry { padding-bottom: 40px; } .sectionHead, .cta > div { align-items: flex-start; flex-direction: column; } .sectionHead h2 { font-size: 32px; } .map iframe { height: 320px; } .location { padding: 40px 0; } }
+@media (prefers-reduced-motion: reduce) { .contactCard { transition: none; } .contactCard:hover { transform: none; } }
