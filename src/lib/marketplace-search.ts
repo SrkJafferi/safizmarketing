@@ -8,6 +8,7 @@ import {
 } from "@/data/marketplace";
 import type { PropertyUnit } from "@/types/marketplace";
 export type SearchFilters = {
+    purpose: string;
     q: string;
     city: string;
     type: string;
@@ -24,6 +25,7 @@ export type SearchFilters = {
     maxSize: string;
 };
 export const searchDefaults: SearchFilters = {
+    purpose: "sale",
     q: "",
     city: "all",
     type: "all",
@@ -44,6 +46,7 @@ export function parseSearch(
 ): SearchFilters {
     const result = { ...searchDefaults };
     const choices: Partial<Record<keyof SearchFilters, string[]>> = {
+        purpose: ["sale", "rent"],
         city: ["all", ...projects.map((p) => p.city)],
         type: ["all", "commercial", ...propertyUnits.map((u) => u.type)],
         project: ["all", ...projects.map((p) => p.id)],
@@ -94,6 +97,7 @@ export function searchUnits(
 ): PropertyUnit[] {
     const q = filters.q.trim().toLowerCase();
     const result = source.filter((u) => {
+        if ((u.purpose ?? "sale") !== filters.purpose) return false;
         const p = getProject(u.projectId)!;
         const d = getDeveloper(p.developerId)!;
         const matches = (selected: string, value: string) => selected === "all" || selected.split("|").includes(value);

@@ -36,7 +36,7 @@ import { HeroSlideshow } from "./hero-slideshow";
 import { PropertyMarquee } from "./property-marquee";
 import { RotatingHeroText } from "./rotating-hero-text";
 import { FeaturedPropertyCarousel } from "./featured-property-carousel";
-import { HomeSearchField } from "./home-search-field";
+import { HomeSearch } from "./home-search";
 
 const benefits = [
     {
@@ -93,64 +93,6 @@ const locations = [
         href: "/properties?city=Kharian",
     },
 ];
-function HomeSearch() {
-    return (
-        <div className="rh-search-module">
-            <nav className="rh-search-tabs" aria-label="Buy or list a property">
-                <span aria-current="page">Buy</span>
-                <Link href="/list-your-property">Sell / List</Link>
-            </nav>
-            <form className="rh-search" action="/properties" method="get">
-                <HomeSearchField
-                    label="Location"
-                    name="city"
-                    options={[
-                        { value: "all", label: "Any Location" },
-                        ...Array.from(new Set(projects.map((p) => p.city))).map(
-                            (city) => ({ value: city, label: city }),
-                        ),
-                    ]}
-                />
-                <HomeSearchField
-                    label="Property Type"
-                    name="type"
-                    options={[
-                        { value: "all", label: "Any Type" },
-                        { value: "apartment", label: "Apartments" },
-                        { value: "shop", label: "Shops" },
-                        { value: "office", label: "Offices" },
-                        { value: "shop-office", label: "Shops / Offices" },
-                    ]}
-                />
-                <HomeSearchField
-                    label="Project / Developer"
-                    name="project"
-                    options={[
-                        { value: "all", label: "Any Project" },
-                        ...projects.map((p) => ({
-                            value: p.id,
-                            label: p.name,
-                        })),
-                    ]}
-                />
-                <HomeSearchField
-                    label="Price Range"
-                    name="price"
-                    options={[
-                        { value: "any", label: "Any Price" },
-                        { value: "under-10m", label: "Under PKR 10 million" },
-                        { value: "10m-20m", label: "PKR 10–20 million" },
-                        { value: "20m-40m", label: "PKR 20–40 million" },
-                        { value: "over-40m", label: "PKR 40 million +" },
-                    ]}
-                />
-                <button className="rh-search-submit" type="submit">
-                    Search Properties <ArrowRight size={17} />
-                </button>
-            </form>
-        </div>
-    );
-}
 export function MarketplaceHome() {
     const developer = developers[0];
     const selected = [

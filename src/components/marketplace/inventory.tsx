@@ -71,10 +71,10 @@ export function Inventory({ units }: { units: PropertyUnit[] }) {
                                     {formatExactPkr(u.price)}
                                 </td>
                                 <td data-label="Down payment">
-                                    {formatExactPkr(u.downPayment)}
+                                    {u.downPayment != null ? formatExactPkr(u.downPayment) : "—"}
                                 </td>
                                 <td data-label="Each installment">
-                                    {formatExactPkr(u.installmentAmount)}
+                                    {u.installmentAmount != null ? formatExactPkr(u.installmentAmount) : "—"}
                                     <small>
                                         {u.installmentCount} quarterly
                                         installments

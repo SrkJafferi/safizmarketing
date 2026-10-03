@@ -131,3 +131,7 @@
 @media (prefers-reduced-motion: reduce) { .card, .cardPhoto img, .navyButton svg, .filterGroup summary svg { transition: none; } }
 @media (max-width: 1000px) { .listingLayout { grid-template-columns: 230px minmax(0, 1fr); gap: 20px; } .grid:not(.listView) { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hero h1 { font-size: 66px; } .toolbar { flex-wrap: wrap; } .benefits { gap: 15px; } }
 @media (max-width: 700px) { .listingLayout { grid-template-columns: 1fr; } .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hero h1 { font-size: 54px; } .heroDescription { font-size: 15px; } .help > div { flex-wrap: wrap; } .helpActions { flex-wrap: wrap; } .page .navyButton { min-width: 0; } .listView .card { grid-template-columns: 1fr; } }
+.purposeTabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 15px 0; }
+.purposeTabs button { padding: 10px; background: #faf8f4; border: 1px solid #e4dfd5; color: #20394a; font-size: 12px; font-weight: 700; }
+.purposeTabs button[aria-pressed="true"] { background: #041b2b; color: white; border-color: #041b2b; }
+.listingPurpose { font-size: 10px; font-weight: 700; color: #a77828; margin-bottom: 8px; }

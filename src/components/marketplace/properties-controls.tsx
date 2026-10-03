@@ -75,7 +75,7 @@ export function PropertiesControls({ filters, options, total, view, children }: 
     const range = (label: string, min: keyof SearchFilters, max: keyof SearchFilters) => (
         <details className={styles.filterGroup} open>
             <summary>{label}<ChevronDown size={13} /></summary>
-            {min === "minPrice" && select("Price Band", "price", prices)}
+            {min === "minPrice" && draft.purpose !== "rent" && select("Price Band", "price", prices)}
             <div className={styles.range}>
                 <input aria-label={`Minimum ${label}`} type="number" min="0" step="any" placeholder="Min" value={draft[min]} onChange={(e) => change(min, e.target.value)} />
                 <span>–</span>
@@ -89,6 +89,9 @@ export function PropertiesControls({ filters, options, total, view, children }: 
             <div className={styles.listingLayout} id="property-listings">
                 <aside className={styles.sidebar} aria-label="Property filters">
                     <div className={styles.sidebarHead}><h2>Filters</h2><Link href="/properties#property-listings">Clear All</Link></div>
+                    <div className={styles.purposeTabs} aria-label="Listing purpose">
+                        {[{value: "sale", label: "Buy"}, {value: "rent", label: "Rent"}].map(item => <button type="button" key={item.value} aria-pressed={filters.purpose === item.value} onClick={() => apply({...draft, purpose: item.value, price: "any", minPrice: "", maxPrice: ""})}>{item.label}</button>)}
+                    </div>
                     <label className={styles.keyword}><span>Keyword / Unit</span><input className={styles.filterSearch} value={draft.q} maxLength={100} placeholder="Unit, project or neighbourhood" onChange={(e) => change("q", e.target.value)} /></label>
                     <details className={styles.filterGroup} open>
                         <summary>Location<ChevronDown size={13} /></summary>
@@ -101,7 +104,7 @@ export function PropertiesControls({ filters, options, total, view, children }: 
                         <label className={styles.checkRow}><input type="checkbox" checked={draft.type === "all"} onChange={() => change("type", "all")} /><span>All Types</span><span className={styles.optionCount}>{options.cities.reduce((n, o) => n + o.count, 0)}</span></label>
                         {options.types.map((o) => checkbox("type", o))}
                     </details>
-                    {range("Price Range (PKR)", "minPrice", "maxPrice")}
+                    {range(draft.purpose === "rent" ? "Rent Range (PKR)" : "Price Range (PKR)", "minPrice", "maxPrice")}
                     {range("Size (Sq.Ft)", "minSize", "maxSize")}
                     <details className={styles.filterGroup} open>
                         <summary>Project / Developer<ChevronDown size={13} /></summary>

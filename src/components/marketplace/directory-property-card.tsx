@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Building2, MapPin, Ruler } from "lucide-react";
 import { getDeveloper, getProject, unitSizeLabel, unitTypeLabel } from "@/data/marketplace";
 import { formatNumber } from "@/lib/format";
+import { listingPriceLabel } from "@/lib/listings";
 import { unitWhatsappLink } from "@/lib/whatsapp";
 import type { PropertyUnit } from "@/types/marketplace";
 import { HomeFavorite } from "./home-favorite";
@@ -22,13 +23,14 @@ export function DirectoryPropertyCard({ unit }: { unit: PropertyUnit }) {
                 <HomeFavorite unitLabel={`${unit.unitNumber}, ${unit.floor} at ${project.name}`} />
             </div>
             <div className={styles.cardBody}>
+                <p className={styles.listingPurpose}>{unit.purpose === "rent" ? "FOR RENT" : "FOR SALE"}{unit.purpose !== "rent" && unit.inventorySource ? ` · ${unit.inventorySource.toUpperCase()}` : ""}</p>
                 <h3><Link href={detailHref}>{unit.unitNumber}</Link></h3>
                 <p className={styles.unitType}>{unitTypeLabel(unit)}<span> · {unit.floor} floor</span></p>
                 <p className={styles.cardMeta}><Building2 /><Link href={`/projects/${project.slug}`}>{project.name}</Link></p>
                 <p className={styles.developer}>By {developer.name}</p>
                 <p className={`${styles.cardMeta} ${styles.address}`}><MapPin />{project.address}</p>
                 <p className={styles.cardMeta}><Ruler />{unitSizeLabel(unit)}</p>
-                <p className={styles.price}><span>PKR</span> <strong>{formatNumber(unit.price)}</strong></p>
+                <p className={styles.price}><span>{unit.projectId === "rahat-heights" ? `${listingPriceLabel(unit)} · PKR` : "PKR"}</span> <strong>{formatNumber(unit.price)}</strong></p>
                 <p className={styles.availability}>Contact for current availability</p>
                 <div className={styles.cardActions}>
                     <Link href={detailHref}>View Details</Link>

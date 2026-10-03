@@ -36,6 +36,8 @@ export type Project = {
     brochure: string;
     featured: boolean;
 };
+export type ListingPurpose = "sale" | "rent";
+export type InventorySource = "developer" | "resale";
 export type PropertyUnit = {
     id: string;
     slug: string;
@@ -47,11 +49,21 @@ export type PropertyUnit = {
     bedrooms?: number;
     sizeSqFt: number | null;
     price: number;
-    downPayment: number;
-    installmentAmount: number;
-    installmentCount: number;
-    paymentFrequency: "quarterly";
-    availability: "unconfirmed";
+    purpose?: ListingPurpose;
+    inventorySource?: InventorySource;
+    askingPrice?: number;
+    rentAmount?: number;
+    priceLabel?: string;
+    images?: Media[];
+    video?: string;
+    videoPoster?: string;
+    notes?: string;
+    sourceStatus?: string;
+    downPayment?: number;
+    installmentAmount?: number;
+    installmentCount?: number;
+    paymentFrequency?: "quarterly";
+    availability: "unconfirmed" | "listed";
     source: string;
     sourcePage: number;
     featured: boolean;

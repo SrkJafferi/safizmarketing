@@ -5,6 +5,7 @@ import type {
     PropertyUnit,
 } from "@/types/marketplace";
 import mediaDimensions from "./media-dimensions.json";
+import { currentRahatHeightsListings } from "./rahat-heights-inventory";
 
 const media = (
     src: string,
@@ -118,7 +119,7 @@ export const projects: Project[] = [
         overview: "City connections. A Margalla setting.",
         description: [
             "Rahat Heights is a Rahat Associates project in Faisal Margalla City, adjacent to B-17. The brochure presents lower ground and ground floor shops alongside one, two and three bedroom apartments.",
-            "Explore the architectural concepts, floor layouts and location material supplied by the developer. A current unit price list has not been supplied for this project; ask SAFIZ MARKETING for pricing and availability.",
+            "Explore the architectural concepts, floor layouts and location material supplied by the developer. Browse current sale and rental listings supplied by the client, then contact SAFIZ MARKETING to confirm current details and availability.",
         ],
         cover: media(
             "/projects/rahat-heights-cover.jpg",
@@ -452,7 +453,7 @@ for (const id of [
     const unit = units.find((u) => u.id === id);
     if (unit) unit.featured = true;
 }
-export const propertyUnits = units;
+export const propertyUnits = [...units, ...currentRahatHeightsListings];
 export const getProject = (id: string) =>
     projects.find((p) => p.id === id || p.slug === id);
 export const getDeveloper = (id: string) =>
@@ -460,7 +461,7 @@ export const getDeveloper = (id: string) =>
 export const getProjectUnits = (id: string) =>
     propertyUnits.filter((u) => u.projectId === id);
 export const startingPrice = (id: string) => {
-    const prices = getProjectUnits(id).map((u) => u.price);
+    const prices = getProjectUnits(id).filter((u) => u.purpose !== "rent").map((u) => u.price);
     return prices.length ? Math.min(...prices) : null;
 };
 export const unitTypeLabel = (u: PropertyUnit) =>

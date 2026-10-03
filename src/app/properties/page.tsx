@@ -9,7 +9,7 @@ import { genericWhatsappLink } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo";
 import styles from "@/components/marketplace/properties-directory.module.css";
 
-export const metadata = pageMetadata({ title: "Properties for Sale in Islamabad", description: "Explore residential and commercial properties, apartments, shops, offices and investment opportunities listed through SAFIZMARKETING.", path: "/properties" });
+export const metadata = pageMetadata({ title: "Properties for Sale & Rent in Islamabad", description: "Explore residential and commercial properties, apartments, shops, offices and investment opportunities listed through SAFIZMARKETING.", path: "/properties" });
 const PAGE_SIZE = 9;
 const benefits = [
     { icon: ShieldCheck, title: "Verified Listings", copy: "From Trusted Sources" },
@@ -38,16 +38,17 @@ export default async function PropertiesPage({ searchParams }: {
         return `/properties?${next.toString()}#property-listings`;
     };
     const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1).filter((number) => pageCount <= 7 || number === 1 || number === pageCount || Math.abs(number - page) <= 1 || (page <= 3 && number <= 5) || (page >= pageCount - 2 && number >= pageCount - 4));
-    const count = (test: (unit: (typeof propertyUnits)[number]) => boolean) => propertyUnits.filter(test).length;
+    const purposeUnits = propertyUnits.filter(unit => (unit.purpose ?? "sale") === filters.purpose);
+    const count = (test: (unit: (typeof propertyUnits)[number]) => boolean) => purposeUnits.filter(test).length;
     const typeLabels: Record<string, string> = { apartment: "Apartments", shop: "Shops", office: "Offices", "shop-office": "Shops / Offices" };
     const options: DirectoryOptions = {
         cities: Array.from(new Set(projects.map((p) => p.city))).map((city) => ({ value: city, label: city, count: count((u) => getProject(u.projectId)!.city === city) })),
         areas: Array.from(new Set(projects.map((p) => p.area))).map((area) => ({ value: area, label: area, count: count((u) => getProject(u.projectId)!.area === area) })),
-        types: [...Array.from(new Set(propertyUnits.map((u) => u.type))).map((type) => ({ value: type, label: typeLabels[type], count: count((u) => u.type === type) })), { value: "commercial", label: "Commercial", count: count((u) => u.type !== "apartment") }],
+        types: [...Array.from(new Set(purposeUnits.map((u) => u.type))).map((type) => ({ value: type, label: typeLabels[type], count: count((u) => u.type === type) })), { value: "commercial", label: "Commercial", count: count((u) => u.type !== "apartment") }],
         projects: projects.map((p) => ({ value: p.id, label: p.name, count: count((u) => u.projectId === p.id) })),
         developers: developers.map((d) => ({ value: d.id, label: d.name, count: count((u) => getProject(u.projectId)!.developerId === d.id) })),
-        floors: Array.from(new Set(propertyUnits.map((u) => u.floor))),
-        bedrooms: Array.from(new Set(propertyUnits.filter((u) => u.bedrooms).map((u) => String(u.bedrooms)))),
+        floors: Array.from(new Set(purposeUnits.map((u) => u.floor))),
+        bedrooms: Array.from(new Set(purposeUnits.filter((u) => u.bedrooms).map((u) => String(u.bedrooms)))),
     };
     return (
         <div className={styles.page}>

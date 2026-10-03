@@ -261,6 +261,7 @@
     height: 47px;
 }
 .rh-search-tabs span,
+.rh-search-tabs button,
 .rh-search-tabs a {
     padding: 14px 40px;
     min-width: 118px;
@@ -1552,4 +1553,11 @@ button:not(.rh-search-submit),
         white-space: normal;
         gap: 24px;
     }
+}
+
+.rh-search-tabs button { border: 1px solid #ffffff50; border-radius: 0; background: #021c2b70; color: #fff; cursor: pointer; }
+.rh-search-tabs button[aria-pressed="true"] { background: #fff; color: #041b2b; border-color: #fff; }
+.reference-home .rh-search-tabs button { border-radius: 0; }
+@media (max-width: 600px) {
+    .rh-search-tabs > button, .rh-search-tabs > a { min-width: 0; flex: 1; padding-inline: 18px; }
 }
