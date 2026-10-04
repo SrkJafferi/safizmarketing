@@ -11,7 +11,7 @@
 .hero .eyebrow { color: #e8b54f; }
 .hero h1 { font-size: clamp(44px, 4.3vw, 68px); line-height: 1.08; }
 .hero h1 span { color: #e5ae49; }
-.heroDescription { max-width: 445px; margin-top: 18px; font-size: 14px; line-height: 1.7; color: #e1e7ea; }
+.heroDescription { max-width: 445px; margin-top: 18px; font-size: 16px; line-height: 1.7; color: #e1e7ea; }
 .heroBenefits { display: flex; gap: 26px; margin-top: 28px; }
 .heroBenefits > div { display: flex; align-items: center; gap: 12px; }
 .heroBenefits span { width: 46px; height: 46px; flex-shrink: 0; display: grid; place-items: center; border: 1px solid #d6aa4b80; border-radius: 50%; color: #e7b552; }
@@ -32,7 +32,7 @@
 .benefits h3 { font-size: 15px; font-weight: 700; }
 .benefits p { color: #536171; font-size: 12px; line-height: 1.7; margin-top: 3px; }
 .form { padding: 30px; background: #fff; border: 1px solid #eeeae4; border-radius: 16px; box-shadow: 0 8px 25px #392e1410; scroll-margin-top: 110px; }
-.form .eyebrow { font-size: 9px; margin-bottom: 10px; }
+.form .eyebrow { font-size: 11px; margin-bottom: 10px; }
 .form h2 { font-size: clamp(25px, 2.3vw, 34px); }
 .formIntro { margin-top: 9px; font-size: 11px; color: #647181; line-height: 1.7; }
 .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 18px; margin-top: 22px; }
@@ -46,7 +46,7 @@
 .selectField:global(.is-open) { z-index: 5; }
 .selectField :global(.rh-select-trigger) { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; cursor: pointer; }
 .selectField :global(.rh-select-menu) { top: calc(100% + 6px); left: 0; right: 0; }
-.sendButton, .darkButton { display: inline-flex; justify-content: center; align-items: center; gap: 12px; min-height: 46px; padding: 12px 22px; border-radius: 12px; font-size: 12px; font-weight: 700; transition: background .2s, transform .2s; }
+.sendButton, .darkButton { display: inline-flex; justify-content: center; align-items: center; gap: 12px; min-height: 46px; padding: 12px 22px; border-radius: 12px; font-size: 13px; font-weight: 700; transition: background .2s, transform .2s; }
 .sendButton { margin-top: 18px; width: 100%; color: #082131; border: 0; background: linear-gradient(105deg, #e6ac3e, #ddad51); cursor: pointer; }
 .sendButton:hover { background: #e9bd65; }
 .sendButton:focus-visible, .darkButton:focus-visible, .typeCard:focus-visible { outline: 2px solid #bb8d32; outline-offset: 4px; }
@@ -88,7 +88,7 @@
 .directPhoto img { object-fit: cover; }
 .directPhoto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 45%, #f8f6f2); }
 .directCopy { padding-block: 22px; }
-.directCopy .eyebrow { font-size: 9px; margin-bottom: 10px; }
+.directCopy .eyebrow { font-size: 11px; margin-bottom: 10px; }
 .directCopy h2 { font-size: clamp(22px, 2.1vw, 31px); }
 .directCopy > p:last-child { font-size: 11px; line-height: 1.7; color: #67737d; margin-top: 9px; }
 .darkButton { background: #041e2d; color: #fff; white-space: nowrap; }
@@ -106,7 +106,7 @@
     .trustGrid > div { padding: 0 12px; gap: 10px; }
     .faqGrid { gap: 35px; }
     .directSection { gap: 15px; }
-    .directSection .darkButton { padding-inline: 15px; font-size: 11px; }
+    .directSection .darkButton { padding-inline: 15px; font-size: 13px; }
 }
 @media (max-width: 760px) {
     .heroInner { min-height: 500px; display: block; padding-block: 112px 35px; }

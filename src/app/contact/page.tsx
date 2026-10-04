@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ChevronRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { EnquiryForm } from "@/components/marketplace/enquiry-form";
 import { pageMetadata } from "@/lib/seo";
 import { contact } from "@/lib/site";
@@ -25,7 +25,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
             <Image src="/banners/golden-hour-penthouse.avif" alt="Golden-hour penthouse overlooking the city" fill sizes="100vw" preload className={directory.heroImage} />
             <div className={directory.heroOverlay} />
             <div className="rh-container"><div className={directory.heroCopy}>
-                <nav className={directory.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><ChevronRight size={13} /><span aria-current="page">Contact</span></nav>
+
                 <p className={directory.eyebrow}>Contact SAFIZ MARKETING</p>
                 <h1>Let’s Talk About<br /><em>Your Next Move.</em></h1>
                 <p className={directory.heroDescription}>A property question, a project enquiry or your next opportunity.<br />Connect with our team and explore the possibilities.</p>

@@ -5,8 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, BedDouble, Building2, ChevronLeft, ChevronRight, Images, MapPin, Play, Ruler, Store } from "lucide-react";
 import type { ListingPurpose, PropertyUnit } from "@/types/marketplace";
-import { unitSizeLabel, unitTypeLabel } from "@/data/marketplace";
-import { rahatHeightsLocation } from "@/data/rahat-heights-inventory";
+import { getProject, unitSizeLabel, unitTypeLabel } from "@/data/marketplace";
 import { listingAmount, listingPriceLabel, listingPurposes } from "@/lib/listings";
 import { formatNumber } from "@/lib/format";
 import { unitWhatsappLink } from "@/lib/whatsapp";
@@ -19,16 +18,18 @@ const floors: Record<string, string> = { Ground: "Ground Floor", First: "1st Flo
 
 export function CurrentInventoryCard({ unit, purpose }: { unit: PropertyUnit; purpose: "all" | ListingPurpose }) {
     const [index, setIndex] = useState(0);
-    const photos = unit.images!;
+    const project = getProject(unit.projectId)!;
+    const photos = unit.images?.length ? unit.images : [project.cover];
     const image = photos[index];
+    const headingId = `inventory-unit-${unit.id}`;
     const purposes = purpose === "all" ? listingPurposes(unit) : [purpose];
     const detailHref = `/properties/${unit.slug}`;
     const move = (direction: number) => setIndex(previous => (previous + direction + photos.length) % photos.length);
 
-    return <article className={styles.card} aria-labelledby={`inventory-unit-${unit.unitNumber}`}>
+    return <article className={styles.card} aria-labelledby={headingId}>
         <div className={styles.image}>
             <Link href={detailHref} aria-label={`View Unit ${unit.unitNumber}`}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1000px) 22vw, (min-width: 600px) 44vw, 90vw" className="object-cover" /></Link>
-            <HomeFavorite unitLabel={`Unit ${unit.unitNumber} at Rahat Heights`} />
+            <HomeFavorite unitLabel={`Unit ${unit.unitNumber} at ${project.name}`} />
             <button type="button" className={`${styles.photoArrow} ${styles.previous}`} disabled={photos.length < 2} onClick={() => move(-1)} aria-label={`Previous photo of Unit ${unit.unitNumber}`}><ChevronLeft size={20}/></button>
             <button type="button" className={`${styles.photoArrow} ${styles.next}`} disabled={photos.length < 2} onClick={() => move(1)} aria-label={`Next photo of Unit ${unit.unitNumber}`}><ChevronRight size={20}/></button>
             <span className={styles.photoCount}><Images size={15}/>{unit.actualUnitMedia ? `${photos.length} ${photos.length === 1 ? "Photo" : "Photos"}` : "Project image"}</span>
@@ -37,14 +38,14 @@ export function CurrentInventoryCard({ unit, purpose }: { unit: PropertyUnit; pu
         <div className={styles.cardBody}>
             <div className={styles.unit}>
                 <div className={styles.cardBadges}><ListingBadges unit={unit}/></div>
-                <h3 id={`inventory-unit-${unit.unitNumber}`}><Link href={detailHref}>Unit {unit.unitNumber}</Link></h3>
+                <h3 id={headingId}><Link href={detailHref}>Unit {unit.unitNumber}</Link></h3>
                 <p className={styles.type}>{unitTypeLabel(unit)}</p>
                 <div className={styles.facts}>
                     <span>{unit.bedrooms ? <BedDouble/> : <Store/>}<span>{unit.bedrooms ? `${unit.bedrooms} Bed` : "Shop"}</span></span>
                     <span><Building2/><span>{floors[unit.floor] ?? `${unit.floor} Floor`}</span></span>
                     <span><Ruler/><span>{unitSizeLabel(unit)}</span></span>
                 </div>
-                <p className={styles.location}><MapPin size={17}/>{rahatHeightsLocation}</p>
+                <p className={styles.location}><MapPin size={17}/>{project.address}</p>
             </div>
             <div className={styles.commercial}>
                 <div className={`${styles.prices} ${purposes.length > 1 ? styles.dualPrices : ""}`}>{purposes.map(selected => <div className={styles.priceRow} key={selected}><p>{listingPriceLabel(unit,selected)}</p><strong>Rs. {formatNumber(listingAmount(unit,selected))}</strong></div>)}</div>

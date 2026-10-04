@@ -10,14 +10,14 @@
 }
 .directory-header .eyebrow {
     color: #d8c09a;
-    font-size: 9px;
+    font-size: 11px;
     margin-top: 30px;
 }
 .directory-header h1 {
     margin: 20px 0;
 }
 .directory-header p:not(.eyebrow) {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.9;
     max-width: 610px;
     color: #fff9;
@@ -177,7 +177,7 @@
     color: #68727a;
 }
 .project-overview .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #8b7654;
 }
 .project-category-list {
@@ -209,7 +209,7 @@
 .project-contact .market-button {
     width: 100%;
     padding: 15px;
-    font-size: 11px;
+    font-size: 13px;
 }
 .developer-identity {
     display: flex;
@@ -223,7 +223,7 @@
     height: 68px;
 }
 .developer-identity p {
-    font-size: 9px;
+    font-size: 11px;
     color: #68727a;
     margin-bottom: 5px;
 }
@@ -283,7 +283,7 @@
     border-bottom: 1px solid #06182720;
 }
 .inventory-controls label {
-    font-size: 9px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #68727a;
@@ -319,7 +319,7 @@
 }
 .inventory th {
     text-align: left;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 650;
     text-transform: uppercase;
     letter-spacing: 0.07em;
@@ -340,14 +340,14 @@
 .inventory td small {
     display: block;
     color: #68727a;
-    font-size: 9px;
+    font-size: 11px;
     margin-top: 7px;
 }
 .inventory td:last-child > a {
     display: block;
     color: #1c5d47;
     font-weight: 650;
-    font-size: 10px;
+    font-size: 13px;
     white-space: normal;
 }
 .inventory tr:hover {
@@ -527,7 +527,7 @@
     object-position: center;
 }
 .unit-detail-copy .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #8b7654;
 }
 .unit-detail-copy h1 {
@@ -565,7 +565,7 @@
     margin-top: 28px;
 }
 .unit-facts dt {
-    font-size: 9px;
+    font-size: 11px;
     color: #68727a;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -749,7 +749,7 @@
     max-width: 310px;
 }
 .footer-main h2 {
-    font-size: 9px;
+    font-size: 11px;
     color: #d8c09a;
     text-transform: uppercase;
     letter-spacing: 0.17em;
@@ -821,7 +821,7 @@
     padding: 16px 24px;
     background: #0b2334;
     color: #fff;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.035em;
     transition: background 0.25s;
@@ -893,7 +893,7 @@
     gap: 20px;
 }
 .header-list {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 650;
 }
 .header-list span {
@@ -1067,7 +1067,7 @@
     min-width: 0;
 }
 .search-field > span {
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: #68727a;
@@ -1159,7 +1159,7 @@
 }
 .section-intro .eyebrow {
     color: #9b7e51;
-    font-size: 9px;
+    font-size: 11px;
 }
 .section-intro h2 {
     margin-top: 13px;
@@ -1212,7 +1212,7 @@
     left: 17px;
     background: #f8f6f1e8;
     padding: 8px 12px;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -1224,7 +1224,7 @@
     padding: 5px 8px;
     background: #061827c9;
     color: #fffc;
-    font-size: 9px;
+    font-size: 11px;
     line-height: 1.4;
     max-width: calc(100% - 24px);
 }
@@ -1232,7 +1232,7 @@
     padding: 22px 0;
 }
 .project-card-body > .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #8b7654;
 }
 .project-card-body h3 {
@@ -1392,7 +1392,7 @@
     border-top: 1px solid #06182714;
 }
 .unit-actions > a {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 650;
     display: flex;
     align-items: center;
@@ -1413,7 +1413,7 @@
 }
 .type-section .eyebrow {
     color: #c3a77a;
-    font-size: 9px;
+    font-size: 11px;
 }
 .type-section h2 {
     margin-top: 18px;
@@ -1489,7 +1489,7 @@
     color: #68727a;
 }
 .developer-story .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #8b7654;
 }
 .developer-story h2 {
@@ -1553,7 +1553,7 @@
     align-items: center;
     gap: 10px;
     color: #8b7654;
-    font-size: 9px;
+    font-size: 11px;
 }
 .location-copy h2 {
     margin-top: 20px;
@@ -1566,7 +1566,7 @@
 }
 .editorial-note {
     display: block;
-    font-size: 9px;
+    font-size: 11px;
     color: #68727a;
     margin-top: 27px;
 }
@@ -1602,7 +1602,7 @@
     gap: 40px;
 }
 .calculator-banner .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #8b7654;
 }
 .calculator-banner h3 {
@@ -1628,7 +1628,7 @@
     align-items: center;
 }
 .owner-section .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #d8c09a;
 }
 .owner-section h2 {
@@ -1685,7 +1685,7 @@
     gap: 35px;
 }
 .market-cta .eyebrow {
-    font-size: 9px;
+    font-size: 11px;
     color: #826841;
 }
 .market-cta h2 {
@@ -2407,7 +2407,7 @@
         padding-top: 60px;
     }
     .hero-in .eyebrow {
-        font-size: 8px;
+        font-size: 10px;
         letter-spacing: 0.15em;
     }
     .hero-in h1 {
@@ -2444,7 +2444,7 @@
         min-height: 72px;
     }
     .search-field > span {
-        font-size: 8px;
+        font-size: 10px;
         letter-spacing: 0.1em;
     }
     .search-field select,
@@ -2466,7 +2466,7 @@
         padding: 18px 0;
     }
     .platform-strip .market-container {
-        font-size: 9px;
+        font-size: 11px;
         gap: 12px;
     }
     .platform-strip .market-container > span {
@@ -2618,7 +2618,7 @@
         font-size: 31px;
     }
     .market-cta .market-button {
-        font-size: 11px;
+        font-size: 13px;
         width: 100%;
         padding: 15px;
     }
@@ -2629,7 +2629,7 @@
         font-size: 42px;
     }
     .directory-header p:not(.eyebrow) {
-        font-size: 12px;
+        font-size: 16px;
     }
     .directory-watermark {
         display: none;
@@ -2696,7 +2696,7 @@
         font-size: 26px;
     }
     .plan-summary span {
-        font-size: 9px;
+        font-size: 11px;
         line-height: 1.6;
     }
     .inventory-controls {
@@ -2740,7 +2740,7 @@
     .inventory td::before {
         content: attr(data-label);
         text-align: left;
-        font-size: 9px;
+        font-size: 11px;
         color: #68727a;
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -2867,13 +2867,13 @@
     }
     .mobile-unit-bar small {
         display: block;
-        font-size: 9px;
+        font-size: 11px;
         color: #68727a;
         font-weight: 400;
         margin-top: 4px;
     }
     .mobile-unit-bar .market-button {
-        font-size: 10px;
+        font-size: 13px;
         min-height: 44px;
         padding: 12px;
     }
@@ -2981,4 +2981,13 @@
     .project-directory-search .search-submit {
         grid-column: 1;
     }
+}
+
+/* Keep button typography consistent across component and responsive styles. */
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    font-size: 13px !important;
 }

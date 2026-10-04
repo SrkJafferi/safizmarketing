@@ -6,9 +6,9 @@
 .page .hero h1 > span { display: inline-block; white-space: nowrap; }
 .heroCopy > p:last-child { max-width: 600px; font-size: 16px; line-height: 1.65; margin-top: 24px; }
 .page h2 { font-family: var(--font-bodoni-moda), Georgia, serif; font-size: 44px; font-weight: 550; letter-spacing: -.9px; line-height: 1.08; }
-.eyebrow { color: #ae8850; text-transform: uppercase; font-size: 9px; font-weight: 800; letter-spacing: 1.7px; margin-bottom: 13px; }
+.eyebrow { color: #ae8850; text-transform: uppercase; font-size: 11px; font-weight: 800; letter-spacing: 1.7px; margin-bottom: 13px; }
 .copy { font-size: 13px; color: #73808a; line-height: 1.8; max-width: 580px; margin-top: 16px; }
-.goldButton, .outlineButton { display: inline-flex; align-items: center; justify-content: center; gap: 16px; border-radius: 12px; padding: 13px 23px; font-size: 11px; font-weight: 800; }
+.goldButton, .outlineButton { display: inline-flex; align-items: center; justify-content: center; gap: 16px; border-radius: 12px; padding: 13px 23px; font-size: 13px; font-weight: 800; }
 .goldButton { background: linear-gradient(105deg, #d5aa51, #e6c680); color: #0b1e2b; }
 .goldButton:hover { background: #edcb82; }
 .outlineButton { border: 1px solid #c5d0d5; color: #fff; }

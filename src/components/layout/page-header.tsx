@@ -19,7 +19,6 @@ export function PageHeader({
     title,
     lead,
     image,
-    crumbs,
     align = "left",
     children,
 }: {
@@ -61,9 +60,6 @@ export function PageHeader({
                     align === "center" && "text-center",
                 )}
             >
-                {crumbs && crumbs.length > 0 ? (
-                    <Breadcrumbs crumbs={crumbs} />
-                ) : null}
 
                 <div
                     className={cn("max-w-3xl", align === "center" && "mx-auto")}
@@ -88,7 +84,7 @@ export function PageHeader({
                     </h1>
 
                     {lead ? (
-                        <p className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-ivory/65">
+                        <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-ivory/65">
                             {lead}
                         </p>
                     ) : null}

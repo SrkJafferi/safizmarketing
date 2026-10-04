@@ -40,7 +40,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
             <div className={directory.heroOverlay} />
             <div className="rh-container">
                 <div className={directory.heroCopy}>
-                    <nav className={directory.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><ChevronRight size={13} /><span aria-current="page">Projects</span></nav>
+
                     <p className={directory.eyebrow}>Featured Projects</p>
                     <h1>Explore <em>Projects.</em></h1>
                     <p className={directory.heroDescription}>Discover the place, the developer and the possibilities.<br />Explore residential, commercial and investment projects across Islamabad and beyond.</p>

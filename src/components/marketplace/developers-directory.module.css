@@ -3,14 +3,15 @@
 .page h3 { font-weight: 600; }
 .page .hero { min-height: 365px; }
 .page .hero h1 { font-size: 62px; letter-spacing: -1.5px; white-space: nowrap; }
+.page .hero h1 em { color: #e4bd65; font-style: italic; }
 .heroContent { position: relative; z-index: 1; padding: 120px 0 42px; max-width: 780px; }
-.heroContent > p:last-child { font-size: 14px; line-height: 1.7; margin-top: 18px; max-width: 575px; }
+.heroContent > p:last-child { font-size: 16px; line-height: 1.7; margin-top: 18px; max-width: 575px; }
 .heroAccent { position: absolute; right: 50px; top: 90px; width: 400px; }
 .heroAccent > span { font-family: var(--font-bodoni-moda), Georgia, serif; font-size: 95px; color: #ffffff09; }
 .heroAccent > p { padding: 14px 0 14px 28px; border-left: 2px solid #d5aa51; margin-top: 8px; margin-left: 8px; font-size: 10px; letter-spacing: 2px; line-height: 1.65; text-transform: uppercase; font-weight: 800; }
 .heroAccent em { color: #d5aa51; font-style: normal; }
-.eyebrow { color: #99794a; font-size: 9px; text-transform: uppercase; letter-spacing: 1.6px; font-weight: 800; margin-bottom: 12px; }
-.goldButton, .outlineButton, .whiteButton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 12px; padding: 13px 21px; font-size: 12px; font-weight: 750; min-height: 45px; }
+.eyebrow { color: #99794a; font-size: 11px; text-transform: uppercase; letter-spacing: 1.6px; font-weight: 800; margin-bottom: 12px; }
+.goldButton, .outlineButton, .whiteButton { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 12px; padding: 13px 21px; font-size: 13px; font-weight: 750; min-height: 45px; }
 .goldButton { background: linear-gradient(105deg, #d0a049, #e4bf74); color: #041b2b; }
 .goldButton:hover { background: #ebc980; }
 .outlineButton { border: 1px solid #d6dde1; color: #fff; }
@@ -25,7 +26,7 @@
 .identity h2 { margin-bottom: 10px; }
 .identity p { font-size: 12px; line-height: 1.7; color: #68747d; }
 .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
-.tags > span { font-size: 9px; padding: 5px 13px; border-radius: 20px; background: #e6decd; }
+.tags > span { font-size: 11px; padding: 5px 13px; border-radius: 20px; background: #e6decd; }
 .facts { display: grid; grid-template-columns: .7fr 1.1fr 1fr; margin: 19px 0 22px; }
 .facts > div { display: flex; gap: 10px; align-items: flex-start; padding-right: 13px; margin-right: 13px; border-right: 1px solid #d7d2c8; }
 .facts > div:last-child { border: 0; margin: 0; padding: 0; }
@@ -36,7 +37,7 @@
 .featuredProjects { border-left: 1px solid #d9d3c7; padding-left: 32px; }
 .projectsHead { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin: 8px 0 16px; }
 .projectsHead .eyebrow { margin: 0; }
-.projectsHead a { display: flex; align-items: center; gap: 8px; font-size: 10px; }
+.projectsHead a { display: flex; align-items: center; gap: 8px; font-size: 13px; }
 .projectLinks { display: grid; gap: 10px; }
 .projectLinks > a { display: flex; gap: 16px; align-items: center; padding: 8px; background: #ffffff70; border: 1px solid #e2ddd3; border-radius: 9px; transition: background .2s; }
 .projectLinks > a:hover { background: #fff; }
@@ -60,11 +61,11 @@
 .mapBadge { position: absolute; top: 18px; right: 18px; display: flex; align-items: center; gap: 10px; background: #fff; padding: 12px 16px; border-radius: 7px; box-shadow: 0 6px 20px #041b2b15; font-size: 10px; }
 .mapBadge svg { color: #ad8442; }
 .locationLinks { position: absolute; bottom: 17px; left: 17px; right: 17px; display: flex; flex-wrap: wrap; gap: 8px; }
-.locationLinks a { display: flex; gap: 6px; align-items: center; background: #fff; border-radius: 7px; padding: 9px 12px; font-size: 11px; font-weight: 750; box-shadow: 0 4px 18px #041b2b12; }
+.locationLinks a { display: flex; gap: 6px; align-items: center; background: #fff; border-radius: 7px; padding: 9px 12px; font-size: 13px; font-weight: 750; box-shadow: 0 4px 18px #041b2b12; }
 .locationLinks svg { color: #aa7c30; }
 .partners { padding: 0 0 28px; }
 .sectionHead { display: flex; justify-content: space-between; gap: 35px; align-items: center; margin-bottom: 18px; }
-.sectionHead > a { display: flex; gap: 8px; align-items: center; font-size: 11px; }
+.sectionHead > a { display: flex; gap: 8px; align-items: center; font-size: 13px; }
 .partnerGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
 .partnerCard { position: relative; min-height: 250px; overflow: hidden; border-radius: 9px; background: #041b2b; color: #fff; }
 .partnerCard::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #041b2beb, #041b2b58), linear-gradient(0deg, #041b2b90, transparent); }
@@ -81,7 +82,7 @@
 .listedCard .partnerContent p { color: #53636f; font-size: 11px; }
 .listedCard .partnerContent { padding: 20px 25px; }
 .listedCard .tags { gap: 5px; }
-.listedCard .tags span { padding: 4px 9px; font-size: 9px; }
+.listedCard .tags span { padding: 4px 9px; font-size: 11px; }
 .cardArrow { position: absolute; z-index: 2; right: 20px; bottom: 20px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #041b2b; background: #fff; }
 .advantages { background: #f0ede7; padding: 30px 0; }
 .advantages .sectionHead > p { font-size: 11px; line-height: 1.7; color: #74808a; max-width: 390px; }
@@ -107,5 +108,5 @@
 .page a:focus-visible { outline: 2px solid #c99b42; outline-offset: 4px; }
 @media (max-width: 1100px) { .page .hero h1 { font-size: 52px; } .heroAccent { right: 0; width: 270px; } .heroAccent > span { font-size: 70px; } .featuredCard { gap: 25px; padding: 25px; } .identity { gap: 18px; } .logo { width: 110px; height: 135px; } .featuredProjects { padding-left: 22px; } .projectThumb { width: 60px; } .partnerContent { padding: 24px 20px; } .advantageGrid { gap: 16px; } .advantageGrid > div { gap: 12px; padding-right: 12px; } }
 @media (max-width: 850px) { .heroAccent { display: none; } .featuredCard { grid-template-columns: 1fr; } .featuredProjects { border-left: 0; border-top: 1px solid #d9d3c7; padding: 22px 0 0; } .coveragePanel { grid-template-columns: 1fr; } .coverageMap { min-height: 330px; } .partnerGrid { grid-template-columns: 1fr; } .partnerCard { min-height: 260px; } .partnerContent { max-width: 380px; } .advantageGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px; } .advantageGrid > div:nth-child(2) { border: 0; } .sectionHead, .partnerCta > div, .nextStep > div { flex-direction: column; align-items: flex-start; gap: 20px; } }
-@media (max-width: 550px) { .page .hero h1 { font-size: 41px; white-space: normal; } .heroContent { padding-top: 115px; } .heroContent > p:last-child { font-size: 13px; } .page h2 { font-size: 32px; } .identity { align-items: flex-start; flex-direction: column; } .logo { width: 125px; height: 120px; } .facts { grid-template-columns: 1fr; gap: 16px; } .facts > div { border: 0; } .featuredCard { padding: 24px 20px; } .coverageCopy { padding: 25px 20px; } .advantageGrid { grid-template-columns: 1fr; } .advantageGrid > div { border: 0; } .projectsHead { flex-wrap: wrap; } .nextStep h2 { font-size: 27px; } }
+@media (max-width: 550px) { .page .hero h1 { font-size: 41px; white-space: normal; } .heroContent { padding-top: 115px; } .heroContent > p:last-child { font-size: 16px; } .page h2 { font-size: 32px; } .identity { align-items: flex-start; flex-direction: column; } .logo { width: 125px; height: 120px; } .facts { grid-template-columns: 1fr; gap: 16px; } .facts > div { border: 0; } .featuredCard { padding: 24px 20px; } .coverageCopy { padding: 25px 20px; } .advantageGrid { grid-template-columns: 1fr; } .advantageGrid > div { border: 0; } .projectsHead { flex-wrap: wrap; } .nextStep h2 { font-size: 27px; } }
 @media (prefers-reduced-motion: reduce) { .partnerImage { transition: none; } .partnerCard:hover .partnerImage { transform: none; } }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Building2, ChevronRight, FileText, Handshake, Headset, MapPin, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, FileText, Handshake, Headset, MapPin, ShieldCheck, Users } from "lucide-react";
 import { developers, projects, propertyUnits } from "@/data/marketplace";
 import { genericWhatsappLink } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo";
@@ -37,7 +37,7 @@ export default function AboutPage() {
             <Image src="/banners/golden-hour-penthouse.avif" alt="Golden-hour penthouse overlooking the city" fill sizes="100vw" preload className={directory.heroImage} />
             <div className={directory.heroOverlay} />
             <div className="rh-container"><div className={`${directory.heroCopy} ${styles.heroCopy}`}>
-                <nav className={directory.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><ChevronRight size={13} /><span aria-current="page">About</span></nav>
+
                 <p className={directory.eyebrow}>About SAFIZ MARKETING</p>
                 <h1><span>Connecting People to</span><br /><em>Better Possibilities.</em></h1>
                 <p className={directory.heroDescription}>A property platform built around clear information, thoughtful guidance and meaningful connections across Islamabad and beyond.</p>

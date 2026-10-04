@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Calculator, ChartNoAxesColumnIncreasing, ChevronRight, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Calculator, ChartNoAxesColumnIncreasing, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import { PaymentCalculator } from "@/components/calculator/payment-calculator";
 import { projects, startingPrice } from "@/data/marketplace";
 import { formatPkr } from "@/lib/format";
@@ -15,7 +15,7 @@ const benefits = [
 ];
 export default function CalculatorPage() {
     return <div className={styles.page}>
-        <section className={styles.hero}><Image src="/banners/golden-hour-penthouse.avif" alt="Penthouse terrace overlooking the city at sunset" fill sizes="100vw" preload /><div className={styles.heroShade} /><div className="rh-container"><div className={styles.heroCopy}><nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><ChevronRight size={12} /><span aria-current="page">Calculator</span></nav><p className={styles.eyebrow}>Plan Your Purchase</p><h1>Make room for<br />the numbers.</h1><p>Explore an indicative mortgage estimate. Set your price, down payment, rate and tenure; all figures are in Pakistani Rupees.</p></div><div className={styles.heroAccent} aria-hidden="true"><span>Calculate.</span><p>Better Numbers<br />Brighter Beginnings</p></div></div></section>
+        <section className={styles.hero}><Image src="/banners/golden-hour-penthouse.avif" alt="Penthouse terrace overlooking the city at sunset" fill sizes="100vw" preload /><div className={styles.heroShade} /><div className="rh-container"><div className={styles.heroCopy}><p className={styles.eyebrow}>Plan Your Purchase</p><h1>Make room for<br /><em>the numbers.</em></h1><p>Explore an indicative mortgage estimate. Set your price, down payment, rate and tenure; all figures are in Pakistani Rupees.</p></div><div className={styles.heroAccent} aria-hidden="true"><span>Calculate.</span><p>Better Numbers<br />Brighter Beginnings</p></div></div></section>
         <section className={styles.calculatorSection} aria-label="Property financing calculator"><div className="rh-container"><PaymentCalculator /><div className={styles.benefits}>{benefits.map((item) => <div key={item.title}><span><item.icon size={30} strokeWidth={1.5} aria-hidden="true" /></span><div><h2>{item.title}</h2><p>{item.copy}</p></div></div>)}</div></div></section>
         <section className={styles.plans}><div className="rh-container"><div className={styles.sectionHead}><div><p className={styles.eyebrow}>Developer Plans, Separately</p><h2>Looking for a project payment plan?</h2><p>Developer quarterly installments are published plans, distinct from the financing estimate above.</p></div><Link href="/projects">Explore Projects<ArrowRight size={17} /></Link></div><div className={styles.projectGrid}>{projects.map((project) => {
             const price = startingPrice(project.id);

@@ -47,7 +47,7 @@
     justify-content: center;
     gap: 12px;
     padding: 13px 23px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.2;
     font-weight: 800;
     border-radius: 3px;
@@ -129,7 +129,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 800;
     border-radius: 4px;
     background: linear-gradient(105deg, #d5aa51, #e6c680);
@@ -277,6 +277,7 @@
 .rh-search-tabs a {
     background: #041b2b44;
     color: #fff;
+    border-radius: 0px 12px 0px 0px;
 }
 .rh-search-tabs a:hover {
     background: #12374d;
@@ -566,7 +567,7 @@
 .rh-project-card-content .rh-button {
     margin-top: 4px;
     padding: 12px 27px;
-    font-size: 12px;
+    font-size: 13px;
 }
 .rh-properties {
     background: #fff;
@@ -620,7 +621,7 @@
     min-width: 0;
     display: flex;
 }
-.rh-carousel-item > .rh-property-card {
+.rh-carousel-item > article {
     width: 100%;
 }
 .rh-carousel-controls {
@@ -729,7 +730,7 @@
     padding: 3px 10px;
     text-align: right;
     color: #fff;
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.1px;
     pointer-events: none;
 }
@@ -791,7 +792,7 @@
 .rh-property-actions > a:first-child {
     flex: 1;
     border-radius: 3px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 800;
     display: flex;
     justify-content: center;
@@ -924,7 +925,7 @@
 }
 .rh-developer .rh-eyebrow {
     color: #b7a071;
-    font-size: 9px;
+    font-size: 11px;
 }
 .rh-developer h2 {
     font-size: 43px;
@@ -976,7 +977,7 @@
     margin-top: 19px;
     width: 100%;
     padding: 13px 12px;
-    font-size: 11px;
+    font-size: 13px;
     gap: 8px;
     white-space: nowrap;
 }
@@ -1012,7 +1013,7 @@
     max-width: 455px;
 }
 .rh-location .rh-button {
-    font-size: 11px;
+    font-size: 13px;
     padding: 14px 20px;
 }
 .rh-location-visual {
@@ -1227,7 +1228,7 @@
 }
 .rh-calculator-note {
     grid-column: 1/-1;
-    font-size: 9px;
+    font-size: 11px;
     color: #94a6b2;
     line-height: 1.5;
     margin-top: -11px;
@@ -1292,7 +1293,7 @@
 }
 .rh-contact .rh-eyebrow {
     color: #dbc180;
-    font-size: 9px;
+    font-size: 11px;
     margin-bottom: 9px;
 }
 .rh-contact h2 {
@@ -1557,7 +1558,9 @@ button:not(.rh-search-submit),
 
 .rh-search-tabs button { border: 1px solid #ffffff50; border-radius: 0; background: #021c2b70; color: #fff; cursor: pointer; }
 .rh-search-tabs button[aria-pressed="true"] { background: #fff; color: #041b2b; border-color: #fff; }
-.reference-home .rh-search-tabs button { border-radius: 0; }
+.reference-home .rh-search-tabs button { border-radius: 12px 0px 0px 0px; }
+.reference-home .rh-hero button,
+.reference-home .rh-hero .rh-search-tabs a { font-size: 13px; }
 @media (max-width: 600px) {
     .rh-search-tabs > button, .rh-search-tabs > a { min-width: 0; flex: 1; padding-inline: 18px; }
 }

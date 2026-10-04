@@ -7,7 +7,7 @@
 .top > p { font-size: 10px; font-weight: 750; letter-spacing: 2.4px; text-transform: uppercase; color: #9b742f; }
 .mailIcon { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid #d5b98566; border-radius: 50%; background: #ede4d2; color: #ad8136; }
 .mailIcon svg { width: 19px; height: 19px; stroke-width: 1.5; }
-.preview { margin-left: auto; border: 1px solid #d9caaa; border-radius: 20px; padding: 4px 9px; color: #7e6b48; font-size: 9px; line-height: 1.3; letter-spacing: .5px; }
+.preview { margin-left: auto; border: 1px solid #d9caaa; border-radius: 20px; padding: 4px 9px; color: #7e6b48; font-size: 11px; line-height: 1.3; letter-spacing: .5px; }
 .card .heading { font-size: clamp(30px, 2.6vw, 39px); line-height: 1.12; font-weight: 500; letter-spacing: -.8px; }
 .card .heading em { color: #bb8d38; font-weight: 500; }
 .description { font-size: 12px; line-height: 1.8; color: #60717c; margin: 16px 0 17px; max-width: 380px; }
@@ -25,12 +25,12 @@
 .subscribe:hover { background: #173d51; }
 .subscribe:focus-visible, .success button:focus-visible { outline: 2px solid #b18538; outline-offset: 4px; }
 .error { color: #a8402e; font-size: 11px; line-height: 1.5; margin-top: 7px; }
-.note { color: #77817f; font-size: 9px; line-height: 1.8; margin-top: 15px; }
+.note { color: #77817f; font-size: 11px; line-height: 1.8; margin-top: 15px; }
 .note > span { display: block; color: #8a806d; }
 .success { display: flex; align-items: flex-start; gap: 12px; padding: 20px 17px; background: #e9efe7; border: 1px solid #b8cbb0; border-radius: 12px; min-height: 126px; color: #365641; }
 .success > svg { flex-shrink: 0; }
 .success strong { font-size: 12px; line-height: 1.5; }
 .success p { font-size: 10px; line-height: 1.7; color: #58715e; margin-top: 5px; }
-.success button { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; cursor: pointer; margin-top: 12px; border-radius: 12px; padding: 3px 0; }
+.success button { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; cursor: pointer; margin-top: 12px; border-radius: 12px; padding: 3px 0; }
 @media (max-width: 950px) { .layout.layout { grid-template-columns: 1fr; gap: 36px; } .card { max-width: 620px; width: 100%; } }
 @media (max-width: 600px) { .card { padding: 27px 23px; border-radius: 20px; } .left :global(.rh-contact-links) { column-gap: 20px; } .card .heading { font-size: 31px; } }

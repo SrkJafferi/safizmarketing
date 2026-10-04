@@ -64,7 +64,6 @@ export function DirectoryHeader({
     return (
         <section className="directory-header">
             <div className="market-container">
-                <Breadcrumbs items={[{ label: title }]} />
                 <p className="eyebrow">{eyebrow}</p>
                 <h1 className="market-display">{title}</h1>
                 <p>{copy}</p>

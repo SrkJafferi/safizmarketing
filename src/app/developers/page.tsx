@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Building2, ChartNoAxesColumnIncreasing, ChevronRight, Diamond, FileText, Handshake, Headset, MapPin, MessageCircle, PanelsTopLeft, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, ChartNoAxesColumnIncreasing, Diamond, FileText, Handshake, Headset, MapPin, MessageCircle, PanelsTopLeft, Users } from "lucide-react";
 import { developers, projects } from "@/data/marketplace";
 import { genericWhatsappLink, ownerWhatsappLink } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo";
@@ -26,9 +26,9 @@ export default function DevelopersPage() {
             <Image src="/banners/developers-hero.avif" alt="Twilight villas with a city skyline" fill sizes="100vw" preload className={directory.heroImage} />
             <div className={directory.heroOverlay} />
             <div className="rh-container"><div className={styles.heroContent}>
-                <nav className={directory.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><ChevronRight size={13} /><span aria-current="page">Developers</span></nav>
+
                 <p className={directory.eyebrow}>The People Behind the Places</p>
-                <h1>Meet the Developers.</h1>
+                <h1>Meet the <em>Developers.</em></h1>
                 <p>Explore the developers whose projects are listed on SAFIZ MARKETING.<br />Discover their projects, published information and opportunities—all in one place.</p>
             </div><div className={styles.heroAccent} aria-hidden="true"><span>Partners.</span><p>Listed<br />Developers<br /><em>Meaningful</em><br />Connections</p></div></div>
         </section>

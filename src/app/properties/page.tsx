@@ -58,7 +58,7 @@ export default async function PropertiesPage({ searchParams }: {
                 <div className={styles.heroOverlay} />
                 <div className="rh-container">
                     <div className={styles.heroCopy}>
-                        <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/">Home</Link><ChevronRight size={13} /><span aria-current="page">Properties</span></nav>
+
                         <p className={styles.eyebrow}>Property Marketplace</p>
                         <h1>Find Your Next<br /><em>Property.</em></h1>
                         <p className={styles.heroDescription}>Explore a wide range of residential, commercial and investment opportunities across Islamabad and beyond.</p>

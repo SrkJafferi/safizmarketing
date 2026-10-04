@@ -9,7 +9,6 @@ import {
     MapPin,
     MessageCircle,
     PanelsTopLeft,
-    Ruler,
     ShieldCheck,
     Store,
     Headset,
@@ -20,14 +19,9 @@ import {
     developers,
     projects,
     propertyUnits,
-    getProject,
-    unitTypeLabel,
-    unitSizeLabel,
 } from "@/data/marketplace";
-import { genericWhatsappLink, unitWhatsappLink } from "@/lib/whatsapp";
+import { genericWhatsappLink } from "@/lib/whatsapp";
 import { contact, site } from "@/lib/site";
-import { formatNumber } from "@/lib/format";
-import { HomeFavorite } from "./home-favorite";
 import { HomePlanning } from "./home-planning";
 import { HomeStats } from "./home-stats";
 import { NewsletterCard } from "./newsletter-card";
@@ -36,6 +30,7 @@ import { HeroSlideshow } from "./hero-slideshow";
 import { PropertyMarquee } from "./property-marquee";
 import { RotatingHeroText } from "./rotating-hero-text";
 import { FeaturedPropertyCarousel } from "./featured-property-carousel";
+import { CurrentInventoryCard } from "./current-inventory-card";
 import { HomeSearch } from "./home-search";
 
 const benefits = [
@@ -95,28 +90,9 @@ const locations = [
 ];
 export function MarketplaceHome() {
     const developer = developers[0];
-    const selected = [
-        propertyUnits.find(
-            (u) =>
-                u.projectId === "rahat-heights-ii" && u.unitNumber === "LG-01",
-        )!,
-        propertyUnits.find(
-            (u) =>
-                u.projectId === "rahat-heights-ii" &&
-                u.unitNumber === "103 / 110",
-        )!,
-        propertyUnits.find(
-            (u) =>
-                u.projectId === "rahat-heights-ii" &&
-                u.unitNumber === "201 / 202",
-        )!,
-        propertyUnits.find(
-            (u) =>
-                u.projectId === "smart-one-heights-2" &&
-                u.unitNumber === "F-01" &&
-                u.floor === "Second",
-        )!,
-    ];
+    const selected = ["203", "301", "304", "401"].map(number =>
+        propertyUnits.find(unit => unit.projectId === "rahat-heights" && unit.unitNumber === number)!,
+    );
     const carouselUnits = [
         ...selected,
         ...propertyUnits.filter((unit) => !selected.some((item) => item.id === unit.id)),
@@ -237,7 +213,7 @@ export function MarketplaceHome() {
                         <div>
                             <p className="rh-eyebrow">Featured Properties</p>
                             <h2 id="home-properties">
-                                Explore Available Properties
+                                Explore Available <em>Properties</em>
                             </h2>
                         </div>
                         <Link href="/properties" className="rh-text-link">
@@ -245,95 +221,10 @@ export function MarketplaceHome() {
                         </Link>
                     </div>
                     <FeaturedPropertyCarousel>
-                        {carouselUnits.map((unit, index) => {
-                            const project = getProject(unit.projectId)!;
-                            return (
-                                <article
-                                    className="rh-property-card"
-                                    key={unit.id}
-                                >
-                                    <div
-                                        className={`rh-property-photo rh-property-photo-${index}`}
-                                    >
-                                        <Link
-                                            href={`/properties/${unit.slug}`}
-                                            aria-label={`View ${unit.unitNumber} at ${project.name}`}
-                                        >
-                                            <Image
-                                                src={
-                                                    index === 1
-                                                        ? project.gallery[0].src
-                                                        : project.cover.src
-                                                }
-                                                alt={
-                                                    index === 1
-                                                        ? project.gallery[0].alt
-                                                        : project.cover.alt
-                                                }
-                                                fill
-                                                sizes={
-                                                    index === 1
-                                                        ? "48vw"
-                                                        : "23vw"
-                                                }
-                                            />
-                                        </Link>
-                                        <span className="rh-badge">
-                                            {unit.type}
-                                        </span>
-                                        <HomeFavorite
-                                            unitLabel={`${unit.unitNumber} at ${project.name}`}
-                                        />
-                                        <span className="rh-photo-note">
-                                            Project concept render
-                                        </span>
-                                    </div>
-                                    <div className="rh-property-body">
-                                        <h3>
-                                            <Link
-                                                href={`/properties/${unit.slug}`}
-                                            >
-                                                {unit.unitNumber}
-                                            </Link>
-                                        </h3>
-                                        <strong className="rh-unit-type">
-                                            {unitTypeLabel(unit)}
-                                        </strong>
-                                        <p>
-                                            {project.name}
-                                            <br />
-                                            {project.address}
-                                        </p>
-                                        <div className="rh-unit-size">
-                                            <Ruler />
-                                            {unitSizeLabel(unit)}
-                                        </div>
-                                        <div className="rh-unit-price">
-                                            <span>PKR</span>{" "}
-                                            {formatNumber(unit.price)}
-                                        </div>
-                                        <div className="rh-property-actions">
-                                            <Link
-                                                href={`/properties/${unit.slug}`}
-                                            >
-                                                View Details
-                                            </Link>
-                                            <a
-                                                href={unitWhatsappLink(unit)}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                aria-label={`Enquire on WhatsApp about ${unit.unitNumber} at ${project.name}`}
-                                            >
-                                                <MessageCircle />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </article>
-                            );
-                        })}
+                        {carouselUnits.map(unit => <CurrentInventoryCard key={unit.id} unit={unit} purpose="all" />)}
                     </FeaturedPropertyCarousel>
                     <p className="rh-source-note">
-                        Published developer prices. Current prices and
+                        Listed prices. Current prices and
                         availability require confirmation.
                     </p>
                 </div>
