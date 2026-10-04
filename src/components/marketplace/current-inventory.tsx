@@ -1,13 +1,9 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Building2, MapPin, MessageCircle, Ruler } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { PropertyUnit } from "@/types/marketplace";
-import { unitSizeLabel, unitTypeLabel } from "@/data/marketplace";
-import { filterCurrentInventory, inventoryCounts, listingPriceLabel, type InventoryFilters } from "@/lib/listings";
-import { formatPkr } from "@/lib/format";
-import { unitWhatsappLink } from "@/lib/whatsapp";
+import { filterCurrentInventory, inventoryCounts, type InventoryFilters } from "@/lib/listings";
+import { CurrentInventoryCard } from "./current-inventory-card";
 import { HomeSearchField } from "./home-search-field";
 import styles from "./current-inventory.module.css";
 
@@ -33,12 +29,8 @@ export function CurrentInventory({units}: {units: PropertyUnit[]}) {
             {field("Bedrooms","bedrooms",[{value:"all",label:"Any Bedrooms"},...Array.from(new Set(units.filter(u=>u.bedrooms).map(u=>u.bedrooms!))).map(value=>({value:String(value),label:`${value} Bedrooms`}))])}
             {field("Sort by","sort",[{value:"default",label:"Unit Order"},...(filters.purpose!=="all"?[{value:"price-asc",label:"Price: Low to High"},{value:"price-desc",label:"Price: High to Low"}]:[]),{value:"size-asc",label:"Size: Low to High"},{value:"size-desc",label:"Size: High to Low"}])}
         </div>
-        <div className={styles.summary}><p aria-live="polite">{shown.length} current {shown.length===1?"listing":"listings"}{filters.purpose==="all"?" · Sale and rent shown separately":""}</p><button type="button" onClick={()=>{setFilters(defaults);setLimit(PAGE_SIZE);}}>Reset filters</button></div>
-        <div className={styles.cards}>{shown.slice(0,limit).map(unit=><article className={styles.card} key={unit.id}>
-            <Link className={styles.image} href={`/properties/${unit.slug}`}><Image src={unit.images![0].src} alt={unit.images![0].alt} fill sizes="(min-width: 1000px) 22vw, (min-width: 600px) 44vw, 90vw" className="object-cover"/><span>Rahat Heights project imagery</span></Link>
-            <div className={styles.unit}><div className={styles.badges}><span className={unit.purpose==="rent"?styles.rentBadge:styles.saleBadge}>{unit.purpose==="rent"?"For Rent":"For Sale"}</span>{unit.purpose!=="rent"&&unit.inventorySource&&<span className={styles.sourceBadge}>{unit.inventorySource}</span>}</div><h3><Link href={`/properties/${unit.slug}`}>Unit {unit.unitNumber}</Link></h3><p className={styles.type}>{unitTypeLabel(unit)}</p><div className={styles.facts}><span><Building2 size={14}/>{unit.floor} Floor</span><span><Ruler size={14}/>{unitSizeLabel(unit)}</span></div><p className={styles.location}><MapPin size={14}/>Rahat Heights · Faisal Margalla City</p>{unit.purpose==="sale"&&unit.sourceStatus&&<p className={styles.status}>Source status: {unit.sourceStatus}</p>}</div>
-            <div className={styles.commercial}><p>{listingPriceLabel(unit)}</p><strong>{formatPkr(unit.price)}</strong><Link className={styles.detail} href={`/properties/${unit.slug}`}>View Details<ArrowRight size={16}/></Link><a className={styles.whatsapp} href={unitWhatsappLink(unit)} target="_blank" rel="noopener noreferrer"><MessageCircle size={16}/>WhatsApp</a>{unit.video&&<a className={styles.whatsapp} href={`/properties/${unit.slug}#property-tour`}>Watch Property Tour<ArrowRight size={14}/></a>}</div>
-        </article>)}</div>
+        <div className={styles.summary}><p aria-live="polite">{shown.length} current {shown.length===1?"listing":"listings"}</p><button type="button" onClick={()=>{setFilters(defaults);setLimit(PAGE_SIZE);}}>Reset filters</button></div>
+        <div className={styles.cards}>{shown.slice(0,limit).map(unit=><CurrentInventoryCard key={unit.id} unit={unit} purpose={filters.purpose}/>)}</div>
         {!shown.length&&<p className={styles.empty}>No current listings match these filters.</p>}
         {shown.length>limit&&<button className={styles.more} type="button" onClick={()=>setLimit(old=>old+PAGE_SIZE)}>Show More Units<ArrowRight size={15}/></button>}
         <p className={styles.note}>Prices and availability are based on the latest information supplied by the property owner/developer and may change. Contact SAFIZMARKETING for current details.</p>

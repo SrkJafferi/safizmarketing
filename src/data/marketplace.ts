@@ -112,13 +112,13 @@ export const projects: Project[] = [
         developerId: "rahat-associates",
         name: "Rahat Heights",
         city: "Islamabad",
-        area: "Faisal Margalla City / adjacent B-17",
-        address: "Faisal Margalla City / adjacent B-17, Islamabad",
+        area: "Faisal Margalla City (FMC)",
+        address: "Faisal Margalla City (FMC)",
         projectType: "Mixed-use",
         categories: ["Shops", "1, 2 & 3 bed apartments"],
         overview: "City connections. A Margalla setting.",
         description: [
-            "Rahat Heights is a Rahat Associates project in Faisal Margalla City, adjacent to B-17. The brochure presents lower ground and ground floor shops alongside one, two and three bedroom apartments.",
+            "Rahat Heights is a Rahat Associates project in Faisal Margalla City (FMC). The brochure presents lower ground and ground floor shops alongside one, two and three bedroom apartments.",
             "Explore the architectural concepts, floor layouts and location material supplied by the developer. Browse current sale and rental listings supplied by the client, then contact SAFIZ MARKETING to confirm current details and availability.",
         ],
         cover: media(
@@ -150,7 +150,7 @@ export const projects: Project[] = [
         locationMap: page(
             "rahat-heights",
             5,
-            "Faisal Margalla City location map from the developer brochure",
+            "Faisal Margalla City (FMC) location map from the developer brochure",
         ),
         amenities: [
             "Elevator with smart card access",
@@ -454,6 +454,8 @@ for (const id of [
     if (unit) unit.featured = true;
 }
 export const propertyUnits = [...units, ...currentRahatHeightsListings];
+export const getUnitBySlug = (slug: string) => propertyUnits.find(u => u.slug === slug)
+    ?? propertyUnits.find(u => u.projectId === "rahat-heights" && u.slug === slug.replace(/-rent$/, ""));
 export const getProject = (id: string) =>
     projects.find((p) => p.id === id || p.slug === id);
 export const getDeveloper = (id: string) =>

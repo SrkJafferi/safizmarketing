@@ -5,7 +5,9 @@ import {
     unitSizeLabel,
     unitTypeLabel,
 } from "@/data/marketplace";
-import type { Developer, Project, PropertyUnit } from "@/types/marketplace";
+import type { Developer, ListingPurpose, Project, PropertyUnit } from "@/types/marketplace";
+import { listingPurpose } from "@/lib/listings";
+import { rahatHeightsLocation } from "@/data/rahat-heights-inventory";
 export function whatsappLink(message: string) {
     return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
@@ -18,7 +20,7 @@ export const calculatorWhatsappLink = whatsappLink(
 );
 export function projectWhatsappLink(project: Project) {
     return whatsappLink(
-        `Hello SAFIZ MARKETING, I would like more details about ${project.name} by ${getDeveloper(project.developerId)!.name}.`,
+        `Hello SAFIZ MARKETING, I would like more details about ${project.name}${project.id === "rahat-heights" ? `, ${rahatHeightsLocation}` : ""} by ${getDeveloper(project.developerId)!.name}.`,
     );
 }
 export function developerWhatsappLink(developer: Developer) {
@@ -26,13 +28,11 @@ export function developerWhatsappLink(developer: Developer) {
         `Hello SAFIZ MARKETING, I would like information about ${developer.name} projects listed on your platform.`,
     );
 }
-export function unitWhatsappLink(unit: PropertyUnit) {
+export function unitWhatsappLink(unit: PropertyUnit, purpose: ListingPurpose = listingPurpose(unit)) {
     if (unit.projectId === "rahat-heights") {
-        const context = unit.purpose === "rent"
-            ? `I am interested in renting Unit ${unit.unitNumber} at Rahat Heights, Faisal Margalla City. Please share the current rent and viewing details.`
-            : unit.inventorySource === "developer"
-              ? `I am interested in Developer Unit ${unit.unitNumber} at Rahat Heights, Faisal Margalla City. Please share current details and availability.`
-              : `I am interested in the Resale listing for Unit ${unit.unitNumber} at Rahat Heights, Faisal Margalla City. Please share the asking price and current details.`;
+        const context = purpose === "rent"
+            ? `I am interested in renting Unit ${unit.unitNumber} at Rahat Heights, ${rahatHeightsLocation}. Please share the current rent and viewing details.`
+            : `I am interested in Unit ${unit.unitNumber} for sale at Rahat Heights, ${rahatHeightsLocation}. Please share the current details and availability.`;
         return whatsappLink(`Hello SAFIZMARKETING, ${context} Type: ${unitTypeLabel(unit)}.${unit.sizeSqFt != null ? ` Size: ${unitSizeLabel(unit)}.` : ""} Floor: ${unit.floor}.`);
     }
     return whatsappLink(

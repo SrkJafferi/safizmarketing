@@ -5,6 +5,7 @@ import { developers, getProject, projects, propertyUnits } from "@/data/marketpl
 import { DirectoryPropertyCard } from "@/components/marketplace/directory-property-card";
 import { PropertiesControls, type DirectoryOptions } from "@/components/marketplace/properties-controls";
 import { parseSearch, searchUnits } from "@/lib/marketplace-search";
+import { supportsPurpose } from "@/lib/listings";
 import { genericWhatsappLink } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo";
 import styles from "@/components/marketplace/properties-directory.module.css";
@@ -38,7 +39,7 @@ export default async function PropertiesPage({ searchParams }: {
         return `/properties?${next.toString()}#property-listings`;
     };
     const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1).filter((number) => pageCount <= 7 || number === 1 || number === pageCount || Math.abs(number - page) <= 1 || (page <= 3 && number <= 5) || (page >= pageCount - 2 && number >= pageCount - 4));
-    const purposeUnits = propertyUnits.filter(unit => (unit.purpose ?? "sale") === filters.purpose);
+    const purposeUnits = propertyUnits.filter(unit => supportsPurpose(unit, filters.purpose));
     const count = (test: (unit: (typeof propertyUnits)[number]) => boolean) => purposeUnits.filter(test).length;
     const typeLabels: Record<string, string> = { apartment: "Apartments", shop: "Shops", office: "Offices", "shop-office": "Shops / Offices" };
     const options: DirectoryOptions = {
@@ -70,7 +71,7 @@ export default async function PropertiesPage({ searchParams }: {
                     <PropertiesControls key={query.toString()} filters={filters} options={options} total={results.length} view={view}>
                         {results.length ? <>
                             <div className={`${styles.grid} ${view === "list" ? styles.listView : ""}`}>
-                                {pageResults.map((unit) => <DirectoryPropertyCard key={unit.id} unit={unit} />)}
+                                {pageResults.map((unit) => <DirectoryPropertyCard key={unit.id} unit={unit} purpose={filters.purpose === "rent" ? "rent" : "sale"} />)}
                             </div>
                             <nav className={styles.pagination} aria-label="Property pages">
                                 {page > 1 ? <Link aria-label="Previous page" href={pageHref(page - 1)}><ChevronLeft size={17} /></Link> : <span aria-disabled="true"><ChevronLeft size={17} /></span>}

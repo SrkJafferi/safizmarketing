@@ -7,6 +7,7 @@ import {
     unitTypeLabel,
 } from "@/data/marketplace";
 import type { PropertyUnit } from "@/types/marketplace";
+import { listingAmount, supportsPurpose } from "@/lib/listings";
 export type SearchFilters = {
     purpose: string;
     q: string;
@@ -97,7 +98,8 @@ export function searchUnits(
 ): PropertyUnit[] {
     const q = filters.q.trim().toLowerCase();
     const result = source.filter((u) => {
-        if ((u.purpose ?? "sale") !== filters.purpose) return false;
+        if (!supportsPurpose(u, filters.purpose)) return false;
+        const amount = listingAmount(u, filters.purpose === "rent" ? "rent" : "sale");
         const p = getProject(u.projectId)!;
         const d = getDeveloper(p.developerId)!;
         const matches = (selected: string, value: string) => selected === "all" || selected.split("|").includes(value);
@@ -106,8 +108,8 @@ export function searchUnits(
         if (filters.type !== "all" && !filters.type.split("|").some((type) => type === u.type || (type === "commercial" && u.type !== "apartment"))) return false;
         if (!matches(filters.project, p.id)) return false;
         if (!matches(filters.developer, d.id)) return false;
-        if (filters.minPrice && u.price < Number(filters.minPrice)) return false;
-        if (filters.maxPrice && u.price > Number(filters.maxPrice)) return false;
+        if (filters.minPrice && amount < Number(filters.minPrice)) return false;
+        if (filters.maxPrice && amount > Number(filters.maxPrice)) return false;
         if (filters.minSize && (u.sizeSqFt === null || u.sizeSqFt < Number(filters.minSize))) return false;
         if (filters.maxSize && (u.sizeSqFt === null || u.sizeSqFt > Number(filters.maxSize))) return false;
         if (filters.floor !== "all" && u.floor !== filters.floor) return false;
@@ -116,18 +118,18 @@ export function searchUnits(
             String(u.bedrooms) !== filters.bedrooms
         )
             return false;
-        if (filters.price === "under-10m" && u.price >= 10000000) return false;
+        if (filters.price === "under-10m" && amount >= 10000000) return false;
         if (
             filters.price === "10m-20m" &&
-            (u.price < 10000000 || u.price >= 20000000)
+            (amount < 10000000 || amount >= 20000000)
         )
             return false;
         if (
             filters.price === "20m-40m" &&
-            (u.price < 20000000 || u.price >= 40000000)
+            (amount < 20000000 || amount >= 40000000)
         )
             return false;
-        if (filters.price === "over-40m" && u.price < 40000000) return false;
+        if (filters.price === "over-40m" && amount < 40000000) return false;
         if (filters.price === "on-request") return false;
         return (
             !q ||
@@ -147,9 +149,9 @@ export function searchUnits(
     });
     return result.sort((a, b) =>
         filters.sort === "price-asc"
-            ? a.price - b.price
+            ? listingAmount(a, filters.purpose === "rent" ? "rent" : "sale") - listingAmount(b, filters.purpose === "rent" ? "rent" : "sale")
             : filters.sort === "price-desc"
-              ? b.price - a.price
+              ? listingAmount(b, filters.purpose === "rent" ? "rent" : "sale") - listingAmount(a, filters.purpose === "rent" ? "rent" : "sale")
               : filters.sort === "size-asc"
                 ? (a.sizeSqFt ?? Infinity) - (b.sizeSqFt ?? Infinity)
                 : filters.sort === "size-desc"

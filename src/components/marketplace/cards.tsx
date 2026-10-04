@@ -11,6 +11,7 @@ import {
 import { formatPkr } from "@/lib/format";
 import { projectWhatsappLink, unitWhatsappLink } from "@/lib/whatsapp";
 import type { Project, PropertyUnit } from "@/types/marketplace";
+import { ListingBadges } from "./listing-badges";
 
 export function ProjectCard({
     project,
@@ -84,18 +85,19 @@ export function UnitCard({ unit }: { unit: PropertyUnit }) {
         <article className="unit-card">
             <Link href={`/properties/${unit.slug}`} className="unit-image">
                 <Image
-                    src={project.cover.src}
-                    alt={`${project.name} exterior concept; individual unit photography not supplied`}
+                    src={unit.images?.[0]?.src ?? project.cover.src}
+                    alt={unit.images?.[0]?.alt ?? `${project.name} exterior concept; individual unit photography not supplied`}
                     fill
                     sizes="(min-width: 1100px) 30vw, (min-width: 650px) 48vw, 100vw"
                     className="object-cover"
                 />
                 <span className="unit-image-type">{unitTypeLabel(unit)}</span>
                 <span className="image-note">
-                    Project concept · unit image not supplied
+                    {unit.actualUnitMedia ? "Client-supplied unit media" : "Project concept · unit image not supplied"}
                 </span>
             </Link>
             <div className="unit-card-body">
+                {unit.projectId === "rahat-heights" && <ListingBadges unit={unit}/>}
                 <div className="unit-title">
                     <h3>
                         <Link href={`/properties/${unit.slug}`}>

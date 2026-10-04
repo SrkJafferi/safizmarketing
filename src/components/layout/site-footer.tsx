@@ -40,7 +40,7 @@ export function SiteFooter() {
             label: "Bahria Enclave",
             href: "/properties?project=smart-one-heights-2",
         },
-        { label: "B-17 / FMC", href: "/projects/rahat-heights" },
+        { label: "Faisal Margalla City (FMC)", href: "/projects/rahat-heights" },
         { label: "Kharian", href: "/properties?city=Kharian" },
     ];
     return (

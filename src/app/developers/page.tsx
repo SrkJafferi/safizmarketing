@@ -15,7 +15,7 @@ const advantages = [
     { icon: Headset, title: "Dedicated Support", copy: "Our team helps with project information, listing enquiries and next steps." },
 ];
 const locations = [
-    { label: "B-17 / FMC", href: "/projects/rahat-heights" },
+    { label: "Faisal Margalla City (FMC)", href: "/projects/rahat-heights" },
     { label: "Bahria Enclave", href: "/projects/smart-one-heights-2" },
     { label: "Kharian", href: "/projects/rahat-heights-ii" },
 ];

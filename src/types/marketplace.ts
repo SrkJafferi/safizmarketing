@@ -50,6 +50,10 @@ export type PropertyUnit = {
     sizeSqFt: number | null;
     price: number;
     purpose?: ListingPurpose;
+    purposes?: ListingPurpose[];
+    occupancyStatus?: "vacant" | "rented-out";
+    furnished?: boolean;
+    actualUnitMedia?: boolean;
     inventorySource?: InventorySource;
     askingPrice?: number;
     rentAmount?: number;

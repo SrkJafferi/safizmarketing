@@ -82,7 +82,7 @@ const locations = [
     },
     {
         icon: Building2,
-        title: "B-17 / FMC",
+        title: "Faisal Margalla City (FMC)",
         copy: "Growth and Connectivity",
         href: "/projects/rahat-heights",
     },
@@ -206,9 +206,7 @@ export function MarketplaceHome() {
                                     </h3>
                                     <p className="rh-project-location">
                                         <MapPin />
-                                        {i === 1
-                                            ? "Faisal Margalla City (Adjacent to B-17)"
-                                            : p.address}
+                                        {p.address}
                                     </p>
                                     <p className="rh-project-types">
                                         <Grid2X2 />
